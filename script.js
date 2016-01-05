@@ -1,6 +1,4 @@
-/**
- * Created by Ghayyas on 5/4/2015.
- */
+
 
 
 var app = angular.module('todoApp', ['ngMaterial','firebase']);

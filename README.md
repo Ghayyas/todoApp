@@ -1,1 +1,3 @@
-Creating Simple Todo App Using Angular material and Firebase [a link] (https://geniuz.firebaseapp.com)
+#Creating Simple Todo App Using Angular material and Firebase.
+
+[ You can Find it here...] (https://geniuz.firebaseapp.com)
