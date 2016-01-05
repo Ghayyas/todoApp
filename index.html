@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TODOLIST Add YOur WOrk Here</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/firebase/firebase.js"></script>
+    <script src="./bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-app="todoApp">
+<div ng-controller="TodoListController">
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Add Your TODO Here</h2>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding style="height: 600px;padding: 24px;">
+        <div class="control">
+            <form ng-submit="saveTask()">
+                <md-input-container flex>
+                    <label>Add new todo here</label>
+                    <input ng-model="todo.text">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-disabled="!todo.text" type="submit">Add List</md-button>
+
+
+
+            </form>
+
+
+
+
+                <md-list-item ng-repeat="todo in list" style="list-style: none">
+
+
+                    <md-checkbox ng-model="todo.done" aria-label="Checkbox 1" class="md-warn">
+                        <span class="{{todo.done}}" style="font-family: 'Kaushan Script', cursive;" >{{todo.text}}</span>
+                    </md-checkbox>
+                    <md-button class="md-raised md-warn" ng-disabled="!todo.done" ng-click="list.$remove(todo)">Clear Selected</md-button>
+                </md-list-item>
+               <p> {{todo.text}}</p>
+
+        </div>
+    </md-content>
+
+
+</div>
+<div ng-controller="review">
+        <div>
+            <h2 style="font-family: 'Kaushan Script', cursive; text-align: center">Write Some Review for Developer</h2>
+    <form>
+
+<div>
+        <md-content layout="column" layout-align="space-between center">
+        <md-input-container>
+            <label>Name</label>
+            <input type="text"   ng-model="yourName" placeholder="YourName"ng-required="true">
+        </md-input-container>
+        <br/>
+        <br/>
+        <md-input-container>
+            <label>Your Sugesstion</label>
+            <input type="text"  ng-model="suggestion" placeholder="Input Your Sugesstion" ng-required="true">
+        </md-input-container>
+            <br>
+            <br>
+            <select ng-model="myStar" ng-required="true" placeholder="Pick Some Star">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+            </select>
+        <br/><br/>
+            <md-button class="md-raised md-primary" ng-disabled="!yourName||!myStar||!suggestion" ng-click="addThis()">Submit</md-button>
+                </md-content>
+</div>
+        </form>
+
+            <md-content layout="row" layout-align="center center">
+               <section>
+               <md-list>
+            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                <div class="md-list-item-text" style="font-family: 'Kaushan Script', cursive;">
+                    <h3> Name: {{message.who}}</h3>
+                    <h4> Stars: {{message.star}}</h4>
+                    <h4>suggestion: {{message.what}}</h4>
+
+
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+</md-content>
+</div>
+</div>
+</body>
+</html>
